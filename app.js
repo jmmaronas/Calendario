@@ -17,6 +17,7 @@ mes.innerHTML = meses[monthNumber]
 anio.innerHTML = currentYear.toString()
 
 function renderMeses(mes) {
+    let dato=primerDia()
     const diasReservadosStorage= JSON.parse(localStorage.getItem("diaSeleccionado"))
     dias.innerHTML=""
     for(let i = primerDia(); i>0; i--){
@@ -27,7 +28,7 @@ function renderMeses(mes) {
     for(let i = 1; i<= totalDias(mes); i++){
         const mesAcutal=new Date().getMonth()
         
-        if(profecionales[0].agenda[((i-1)+primerDia())%7].activo){
+        if(profecionales[0].agenda[(dato++)%7].activo){
             dias.innerHTML+=`
             <div class="nuemroDia m-auto bg-blue-500 rounded-full p-2">${i}</div>
             `    
@@ -36,7 +37,7 @@ function renderMeses(mes) {
         
         if(i===currentDay&&monthNumber==mesAcutal){
             dias.innerHTML+=`
-            <div class="nuemroDia m-auto bg-blue-500 rounded-full p-2">${i}</div>
+            <div class="nuemroDia m-auto bg-green-500 rounded-full p-2">${i}</div>
             `    
             continue
         }
@@ -52,7 +53,6 @@ function renderMeses(mes) {
             
     }
 }
-
 
 function totalDias(mes) {
     if(mes===-1) mes=11;
@@ -71,7 +71,7 @@ function anioBiciesto() {
 
 function primerDia() {
     let start=new Date(currentYear, monthNumber, 1)
-    return ((start.getDay()-1)===-1 ? 6 : start.getDay()-1)
+    return (start.getDay())
 }
 
 function mesPasado() {

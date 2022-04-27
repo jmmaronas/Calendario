@@ -5,6 +5,13 @@ export const profecionales = [
         especialidad: "medico",
         agenda: [
             {
+                id: 7,
+                dia:"domingo",
+                inicio: 8,
+                fin: 14,
+                activo:false
+            },
+            {
                 id: 1,
                 dia:"lunes",
                 inicio: 8,
@@ -46,14 +53,7 @@ export const profecionales = [
                 inicio: 8,
                 fin: 14,
                 activo:false
-            },
-            {
-                id: 7,
-                dia:"domingo",
-                inicio: 8,
-                fin: 14,
-                activo:false
-            }
+            }            
         ]
         ,
     },
