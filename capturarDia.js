@@ -1,3 +1,5 @@
+import { currentYear, monthNumber, primerDia, renderMeses } from "./app.js"
+
 const diasContainer = document.querySelector("#dias")
 const diasReservados={
     id:1,
@@ -10,8 +12,7 @@ diasContainer.addEventListener("click", (e) => {
     diaSeleccionado.setFullYear(currentYear, monthNumber, diaNuermo)
     console.log(diaSeleccionado)
     let ubicacion=primerDia() + diaNuermo -1
-    let numeroDia=document.querySelectorAll(".nuemroDia")
-    numeroDia[ubicacion].classList.add("bg-blue-900")
+    
     almacenarDia(diaSeleccionado)
     renderMeses(monthNumber)
 })
